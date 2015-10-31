@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style media="screen">
+        .block {
+            display: inline-block;
+            width: 100px;
+            height:100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript">
+
+    function hsl_col_perc(percent,start,end) {
+         var a = percent/100,
+         b = end*a;
+         c = b+start;
+        //Return a CSS HSL string
+        return 'hsl('+c+',100%,50%)';
+    }
+    $(function(){
+        var percentage = [
+            {"percentage":10},
+            {"percentage":30},
+            {"percentage":25},
+            {"percentage":78},
+            {"percentage":89},
+            {"percentage":14},
+            {"percentage":23},
+            {"percentage":100},
+            {"percentage":1}
+        ]
+        for (var i=0;i<percentage.length;i++){
+            var block = $("<div class='block'></div>");
+            block.css("background-color",hsl_col_perc(percentage[i].percentage,0,120))
+            $("body").append(block);
+        }
+    })
+</script>
+</body>
+</html>
